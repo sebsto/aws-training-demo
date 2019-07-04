@@ -105,7 +105,7 @@ rm cloudtrail.zip ; zip -r cloudtrail.zip cloudtrail.js node_modules -x node_mod
 status "Uploading Lambda function"
 sleep 5 #wait for IAM role to be available to lambda - :-(
 
-FUNCTION_ARN=$(aws lambda create-function --profile $PROFILE --region $REGION --zip-file fileb://./cloudtrail.zip --function-name $FUNCTIONNAME --runtime nodejs --role "$ROLE_EXEC_ARN" --handler cloudtrail.handler --query FunctionArn --output text)
+FUNCTION_ARN=$(aws lambda create-function --profile $PROFILE --region $REGION --zip-file fileb://./cloudtrail.zip --function-name $FUNCTIONNAME --runtime nodejs10.x --role "$ROLE_EXEC_ARN" --handler cloudtrail.handler --query FunctionArn --output text)
 
 #
 # Add permission to authorize S3 bucket to invoke Lambda
