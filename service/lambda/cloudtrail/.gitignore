@@ -1,0 +1,7 @@
+node_modules
+*.orig
+*.zip
+role_execution_policy.json
+role_execution_trust_policy.json
+s3_notifications_config.json
+TOPIC_ARN.do-not-delete
