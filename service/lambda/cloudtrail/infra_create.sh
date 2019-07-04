@@ -57,7 +57,7 @@ cat > role_execution_policy.json <<EOF
   "Statement": [
     {
       "Effect": "Allow",
-      "Action": ["logs:PutLogEvents"],
+      "Action": ["logs:PutLogEvents", "logs:CreateLogStream", "logs:CreateLogGroup"],
       "Resource": "arn:aws:logs:*:*:*"
     },
     {
@@ -95,7 +95,7 @@ aws s3 cp filter_config.json s3://$BUCKETNAME/filter_config.json --region $REGIO
 # Package the lambda function
 #
 status "Install Node dependencies"
-npm install aws-sdk q
+npm install aws-sdk 
 status "Packaging Lambda function"
 rm cloudtrail.zip ; zip -r cloudtrail.zip cloudtrail.js node_modules -x node_modules/aws-sdk/\*
 

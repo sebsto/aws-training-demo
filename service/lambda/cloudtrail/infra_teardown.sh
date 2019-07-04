@@ -18,7 +18,7 @@ aws cloudtrail delete-trail --name $TRAILNAME --region $REGION --profile $PROFIL
 
 # Delete SNS Topic and Subscription
 status "Deleting SNS Topic"
-aws sns delete-topic --topic-arn `cat TOPIC_ARN.do-not-delete` --profile dalek --region $REGION --profile $PROFILE
+aws sns delete-topic --topic-arn `cat TOPIC_ARN.do-not-delete` --region $REGION --profile $PROFILE
 rm TOPIC_ARN.do-not-delete
 
 # Delete IAM role
